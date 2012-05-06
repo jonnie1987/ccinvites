@@ -1,0 +1,40 @@
+author: King6887
+database: true
+description: Plugin to handle player invites to the Cursecraft server.
+main: com.king6887.plugins.ccinvites.CCInvites
+name: CCInvites
+startup: postworld
+version: ${project.version}
+commands:
+  invite:
+    description: Invite someone to the server.
+    permission: ccinvites.invite
+    usage: /<command> [player] [note] to invite player, note is optional.
+  myinvites:
+    description: Lists the number of invites you have.
+    permission: ccinvites.myinvites
+    usage: /<command> [player] to get your or someone elses (op only) invite status.
+  cci:
+    description: Admin functions for ccinvites.
+    permission: ccinvites.admin
+    usage: Replace me
+permissions:
+  ccinvites.*:
+    description: Gives access to all CCInvites commands.
+    children:
+      ccinvites.invite: true
+      ccinvites.myinvites: true
+      ccinvites.myinvites.others: true
+      ccinvites.admin: true
+  ccinvites.invite:
+    description: Allows you to invite others to the server.
+    default: true
+  ccinvites.myinvites:
+    description: Allows you to view your invite status.
+    default: true
+  ccinvites.myinvites.others:
+    description: Allows you to view other peoples invite status.
+    default: op
+  ccinvites.admin:
+    description: Allows you to use cci admin commands.
+    default: op
