@@ -7,17 +7,19 @@ startup: postworld
 version: ${project.version}
 commands:
   invite:
+    aliases: [inv, cciinvite]
     description: Invite someone to the server.
     permission: ccinvites.invite
     usage: /<command> [player] [note] to invite player, note is optional.
   myinvites:
+    aliases: [myinvs, ccimyinvites]
     description: Lists the number of invites you have.
     permission: ccinvites.myinvites
     usage: /<command> [player] to get your or someone elses (op only) invite status.
   cci:
-    description: Admin functions for ccinvites.
-    permission: ccinvites.admin
-    usage: Replace me
+    description: Admin and Help functions for ccinvites.
+    permission: ccinvites.invite
+    usage: /<command> help for detailed usage.
 permissions:
   ccinvites.*:
     description: Gives access to all CCInvites commands.
@@ -36,5 +38,17 @@ permissions:
     description: Allows you to view other peoples invite status.
     default: op
   ccinvites.admin:
-    description: Allows you to use cci admin commands.
+    description: Allows you to use all cci admin commands.
+    children:
+      ccinvites.admin.update: true
+      ccinvites.admin.import: true
+      ccinvites.admin.extras: true
+  ccinvites.admin.update:
+    description: Allows you to force update players invites.
+    default: op
+  ccinvites.admin.import:
+    description: Allows you to import from csv file.
+    default: op
+  ccinvites.admin.extras:
+    description: Allows you to allocate extra invites to players.
     default: op

@@ -145,7 +145,7 @@ public class CCInvites extends JavaPlugin {
     }
 
     /**
-     * 
+     *
      * @param sender The person who typed the command.
      * @param command The command to execute.
      * @param label The alias used to execute the command.
@@ -227,7 +227,7 @@ public class CCInvites extends JavaPlugin {
                             return false;
                         }
                     }
-                    if(sender.hasPermission("ccinvites.admin")){
+                    if(sender.hasPermission("ccinvites.admin.update")){
                         String player;
                         if (args.length > 1) {
                             player = args[1];
@@ -243,7 +243,7 @@ public class CCInvites extends JavaPlugin {
                     if (args.length != 3) {
                         return false;
                     }
-                    if(sender.hasPermission("ccinvites.admin")){
+                    if(sender.hasPermission("ccinvites.admin.extras")){
                         String player = args[1];
                         Integer extra = Integer.parseInt(args[2]);
 
@@ -260,7 +260,7 @@ public class CCInvites extends JavaPlugin {
                     if (args.length != 2) {
                         return false;
                     }
-                    if(sender.hasPermission("ccinvites.admin")){
+                    if(sender.hasPermission("ccinvites.admin.import")){
                         String filename = args[1];
 
                         this.importCSV(filename);
@@ -276,7 +276,7 @@ public class CCInvites extends JavaPlugin {
     }
 
     /**
-     * 
+     *
      * @param player The player to recalculate.
      */
     protected void updatePlayer(String player) {
@@ -328,7 +328,7 @@ public class CCInvites extends JavaPlugin {
     }
 
     /**
-     * 
+     *
      * @param player The player that is doing the inviting.
      * @param invitee The player that is being invited.
      */
@@ -388,7 +388,7 @@ public class CCInvites extends JavaPlugin {
     }
 
     /**
-     * 
+     *
      * @param player The player name to add.
      * @param status The status to add the player in. Invited / Active usually.
      */
@@ -410,7 +410,7 @@ public class CCInvites extends JavaPlugin {
     }
 
     /**
-     * 
+     *
      * @param player The target player.
      * @param extra The number of extra invites to add (can be negative).
      */
@@ -442,7 +442,7 @@ public class CCInvites extends JavaPlugin {
     }
 
     /**
-     * 
+     *
      * @param player The target player.
      * @param note The notes you wish to add to the player.
      */
@@ -582,7 +582,7 @@ public class CCInvites extends JavaPlugin {
             sqle.printStackTrace();
         }
     }
-    
+
     protected String[] displayHelp(CommandSender sender){
         String[] helptext = new String[7];
         helptext[0] = ChatColor.GREEN + "-----" + ChatColor.WHITE + " CCInvites Help " +
